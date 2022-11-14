@@ -1,6 +1,7 @@
 package Clases;
-public class ClienteHabitual extends Cliente{
-	
+
+public class ClienteHabitual extends Cliente {
+
 	int Descuento;
 
 }

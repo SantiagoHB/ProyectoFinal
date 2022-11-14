@@ -1,4 +1,5 @@
 package Clases;
-public class ClienteEsporadico extends Cliente{
+
+public class ClienteEsporadico extends Cliente {
 
 }
