@@ -27,11 +27,14 @@ public class frmCliente extends JFrame {
 	JTextField textCedula;
 	JTextField textNombre;
 	JTextField textSalarioMes;
-	JTextField textSalarioDia;
-	JTextField textMesNumero;
+	JTextField textEmail;
+	JTextField textDiaNacimiento;
+	JTextField textAño;
 	JRadioButton rdbtnVerdadero, rdbtnFalso;
 	ButtonGroup GrupoRadios;
-	JTextField textResultadoRadio;
+	private JTextField textDia;
+	private JTextField textPrecio;
+	private JTextField textFechaNacimiento;
 
 	public frmCliente() {
 
@@ -44,7 +47,7 @@ public class frmCliente extends JFrame {
 		Inicio.datosHotel[0][2] = "50";
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 560, 457);
+		setBounds(100, 100, 1280, 720);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -78,30 +81,43 @@ public class frmCliente extends JFrame {
 		contentPane.add(textNombre);
 
 		// SALARIO DIA
-		JLabel lblSalarioDia = new JLabel("Salario dia");
-		lblSalarioDia.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblSalarioDia.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblSalarioDia.setBounds(10, 84, 157, 25);
-		contentPane.add(lblSalarioDia);
+		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblEmail.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblEmail.setBounds(10, 84, 157, 25);
+		contentPane.add(lblEmail);
 
-		textSalarioDia = new JTextField();
-		textSalarioDia.setFont(new Font("Arial", Font.PLAIN, 14));
-		textSalarioDia.setColumns(10);
-		textSalarioDia.setBounds(177, 84, 298, 20);
-		contentPane.add(textSalarioDia);
+		textEmail = new JTextField();
+		textEmail.setFont(new Font("Arial", Font.PLAIN, 14));
+		textEmail.setColumns(10);
+		textEmail.setBounds(177, 84, 298, 20);
+		contentPane.add(textEmail);
 
 		// SALARIO MES... CALCULADO
-		JLabel lblSalarioMes = new JLabel("Salario mes");
-		lblSalarioMes.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblSalarioMes.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblSalarioMes.setBounds(10, 115, 157, 25);
-		contentPane.add(lblSalarioMes);
+		// JLabel lblSalarioMes = new JLabel("Salario mes");
+		// lblSalarioMes.setFont(new Font("Arial", Font.PLAIN, 14));
+		// lblSalarioMes.setHorizontalAlignment(SwingConstants.RIGHT);
+		// lblSalarioMes.setBounds(10, 115, 157, 25);
+		// contentPane.add(lblSalarioMes);
 
-		textSalarioMes = new JTextField();
-		textSalarioMes.setFont(new Font("Arial", Font.PLAIN, 14));
-		textSalarioMes.setColumns(10);
-		textSalarioMes.setBounds(177, 115, 298, 20);
-		contentPane.add(textSalarioMes);
+		// textSalarioMes = new JTextField();
+		// textSalarioMes.setFont(new Font("Arial", Font.PLAIN, 14));
+		// textSalarioMes.setColumns(10);
+		// textSalarioMes.setBounds(177, 115, 298, 20);
+		// contentPane.add(textSalarioMes);
+
+		// Año
+		JLabel lblAño = new JLabel("Año Nacimiento");
+		lblAño.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblAño.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblAño.setBounds(10, 115, 157, 25);
+		contentPane.add(lblAño);
+
+		textAño = new JTextField();
+		textAño.setFont(new Font("Arial", Font.PLAIN, 14));
+		textAño.setColumns(10);
+		textAño.setBounds(177, 115, 298, 20);
+		contentPane.add(textAño);
 
 		// COMBOBOX FECHA
 		JLabel lblMes = new JLabel("Mes nacimiento");
@@ -116,23 +132,55 @@ public class frmCliente extends JFrame {
 				"Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
 		cbxMes.setBounds(177, 146, 298, 22);
 		contentPane.add(cbxMes);
+		
+		JLabel lblDiaNacimiento = new JLabel("Dia Nacimiento");
+		lblDiaNacimiento.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblDiaNacimiento.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblDiaNacimiento.setBounds(10, 176, 157, 25);
+		contentPane.add(lblDiaNacimiento);
+		
+		textDia = new JTextField();
+		textDia.setFont(new Font("Arial", Font.PLAIN, 14));
+		textDia.setColumns(10);
+		textDia.setBounds(177, 179, 298, 20);
+		contentPane.add(textDia);
 
-		// MES EN NUMERO
-		JLabel lblMesNumero = new JLabel("Mes numero");
-		lblMesNumero.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblMesNumero.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblMesNumero.setBounds(10, 179, 157, 25);
-		contentPane.add(lblMesNumero);
-
-		textMesNumero = new JTextField();
-		textMesNumero.setFont(new Font("Arial", Font.PLAIN, 14));
-		textMesNumero.setColumns(10);
-		textMesNumero.setBounds(177, 179, 298, 20);
-		contentPane.add(textMesNumero);
-
-		cbxMes.addActionListener(new ActionListener() {
+		// BOTON CALCULAR
+		JButton btnCalcular = new JButton("");
+		btnCalcular.setIcon(new ImageIcon(frmCliente.class.getResource("/Imagenes/Calcular.png")));
+		btnCalcular.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnCalcular.setToolTipText("Calcula el salario mes");
+		btnCalcular.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnCalcular.setBounds(45, 206, 108, 95);
+		contentPane.add(btnCalcular);
+
+		// CHECKBOX
+		JCheckBox chckbxHabitacionSencilla = new JCheckBox("Habitacion Sencilla");
+		chckbxHabitacionSencilla.setFont(new Font("Arial", Font.PLAIN, 14));
+		chckbxHabitacionSencilla.setBounds(177, 206, 145, 23);
+		contentPane.add(chckbxHabitacionSencilla);
+
+		JCheckBox chckbxHabitacionDoble = new JCheckBox("Habitacion Doble");
+		chckbxHabitacionDoble.setFont(new Font("Arial", Font.PLAIN, 14));
+		chckbxHabitacionDoble.setBounds(177, 232, 145, 23);
+		contentPane.add(chckbxHabitacionDoble);
+
+		// RADIOBUTTON
+
+		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				Inicio Inicio = new Inicio();
+				
+				
 				int Numero = 0;
+				String MesNum;
+				
 				if (cbxMes.getSelectedItem().toString() == "Enero")
 					Numero = 1;
 				if (cbxMes.getSelectedItem().toString() == "Febrero")
@@ -157,97 +205,48 @@ public class frmCliente extends JFrame {
 					Numero = 11;
 				if (cbxMes.getSelectedItem().toString() == "Diciembre")
 					Numero = 12;
-				String mensaje = "El mes seleccionado en numero es: ";
-				mensaje = mensaje + Integer.toString(Numero);
-				textMesNumero.setText(mensaje);
-			}
-		});
+				
+				MesNum = Integer.toString(Numero);
+				
+				
+				textFechaNacimiento.setText("Fecha de nacimiento: " + textDia.getText() + "/" + MesNum + "/" + textAño.getText());
 
-		// BOTON CALCULAR
-		JButton btnCalcular = new JButton("");
-		btnCalcular.setIcon(new ImageIcon(frmCliente.class.getResource("/Imagenes/Calcular.png")));
-		btnCalcular.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnCalcular.setToolTipText("Calcula el salario mes");
-		btnCalcular.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				int salarioMes;
-				salarioMes = Integer.parseInt(textSalarioDia.getText()) * 30;
-				String resultado = Integer.toString(salarioMes);
-				textSalarioMes.setText(resultado);
-			}
-		});
-		btnCalcular.setBounds(197, 299, 108, 95);
-		contentPane.add(btnCalcular);
-
-		// CHECKBOX
-		JCheckBox chckbxOpcion1 = new JCheckBox("Opcion #1");
-		chckbxOpcion1.setFont(new Font("Arial", Font.PLAIN, 14));
-		chckbxOpcion1.setBounds(177, 206, 97, 23);
-		contentPane.add(chckbxOpcion1);
-
-		JCheckBox chckbxOpcion2 = new JCheckBox("Opcion #2");
-		chckbxOpcion2.setFont(new Font("Arial", Font.PLAIN, 14));
-		chckbxOpcion2.setBounds(177, 232, 97, 23);
-		contentPane.add(chckbxOpcion2);
-
-		// RADIOBUTTON
-		ButtonGroup GrupoRadios = new ButtonGroup();
-		JRadioButton rdbtnVerdadero = new JRadioButton("Verdadero");
-		rdbtnVerdadero.setFont(new Font("Arial", Font.PLAIN, 14));
-		rdbtnVerdadero.setBounds(345, 206, 109, 23);
-		contentPane.add(rdbtnVerdadero);
-
-		JRadioButton rdbtnFalso = new JRadioButton("Falso");
-		rdbtnFalso.setFont(new Font("Arial", Font.PLAIN, 14));
-		rdbtnFalso.setBounds(345, 233, 109, 23);
-		contentPane.add(rdbtnFalso);
-
-		GrupoRadios.add(rdbtnVerdadero);
-		GrupoRadios.add(rdbtnFalso);
-
-		textResultadoRadio = new JTextField();
-		textResultadoRadio.setFont(new Font("Arial", Font.PLAIN, 14));
-		textResultadoRadio.setBounds(345, 263, 130, 20);
-		contentPane.add(textResultadoRadio);
-		textResultadoRadio.setColumns(10);
-
-		// BOTON VALIDAR
-		JButton btnValidar = new JButton("Validar Radio Button");
-		btnValidar.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnValidar.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (rdbtnVerdadero.isSelected()) {
-					textResultadoRadio.setText("VERDADERO");
-					JOptionPane.showMessageDialog(null, "Se selecciono el radio button VERDADERO");
-				}
-				if (rdbtnFalso.isSelected()) {
-					textResultadoRadio.setText("FALSO");
-					JOptionPane.showMessageDialog(null, "Se selecciono el radio button FALSO");
-				}
-			}
-		});
-		btnValidar.setToolTipText("Valida lo seleccionado en el RadioButton");
-		btnValidar.setBounds(302, 330, 173, 63);
-		contentPane.add(btnValidar);
-
-		JButton btnGuardar = new JButton("Guardar");
-		btnGuardar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				Inicio Inicio = new Inicio();
 				for (int i = 0; i <= 4; i++) {
 					if (Inicio.datosHotel[i][0] == null) {
 						Inicio.datosHotel[i][0] = textCedula.getText();
 						Inicio.datosHotel[i][1] = textNombre.getText();
-						Inicio.datosHotel[i][2] = textSalarioDia.getText();
+						Inicio.datosHotel[i][2] = textEmail.getText();
+						Inicio.datosHotel[i][3] = textFechaNacimiento.getText();
 					}
 				}
-
 			}
 		});
-		btnGuardar.setBounds(47, 330, 89, 23);
+		btnGuardar.setBounds(386, 210, 89, 23);
 		contentPane.add(btnGuardar);
+		
+		JCheckBox chckbxHabitacionMatrimonial = new JCheckBox("Habitacion Matrimonial");
+		chckbxHabitacionMatrimonial.setFont(new Font("Arial", Font.PLAIN, 14));
+		chckbxHabitacionMatrimonial.setBounds(177, 258, 173, 23);
+		contentPane.add(chckbxHabitacionMatrimonial);
+		
+		JLabel lblPrecio = new JLabel("Precio");
+		lblPrecio.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPrecio.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblPrecio.setBounds(10, 313, 157, 25);
+		contentPane.add(lblPrecio);
+		
+		textPrecio = new JTextField();
+		textPrecio.setFont(new Font("Arial", Font.PLAIN, 14));
+		textPrecio.setColumns(10);
+		textPrecio.setBounds(177, 315, 298, 20);
+		contentPane.add(textPrecio);
+		
+		textFechaNacimiento = new JTextField();
+		textFechaNacimiento.setFont(new Font("Arial", Font.PLAIN, 14));
+		textFechaNacimiento.setColumns(10);
+		textFechaNacimiento.setBounds(485, 211, 238, 20);
+		contentPane.add(textFechaNacimiento);
+		
+		
 	}
 }
