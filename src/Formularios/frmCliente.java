@@ -279,18 +279,20 @@ public class frmCliente extends JFrame {
 		lblFechaReserva.setBounds(524, 361, 157, 25);
 		contentPane.add(lblFechaReserva);
 
-		JLabel lblFechaFinalReserva = new JLabel("Fecha Final Reserva :");
-		lblFechaFinalReserva.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblFechaFinalReserva.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblFechaFinalReserva.setBounds(524, 399, 157, 25);
-		contentPane.add(lblFechaFinalReserva);
-
-		textFechaFinalReserva = new JTextField();
-		textFechaFinalReserva.setFont(new Font("Arial", Font.PLAIN, 14));
-		textFechaFinalReserva.setEditable(false);
-		textFechaFinalReserva.setColumns(10);
-		textFechaFinalReserva.setBounds(691, 404, 238, 20);
-		contentPane.add(textFechaFinalReserva);
+		/*
+		 * JLabel lblFechaFinalReserva = new JLabel("Fecha Final Reserva :");
+		 * lblFechaFinalReserva.setHorizontalAlignment(SwingConstants.RIGHT);
+		 * lblFechaFinalReserva.setFont(new Font("Arial", Font.PLAIN, 14));
+		 * lblFechaFinalReserva.setBounds(524, 399, 157, 25);
+		 * contentPane.add(lblFechaFinalReserva);
+		 * 
+		 * textFechaFinalReserva = new JTextField();
+		 * textFechaFinalReserva.setFont(new Font("Arial", Font.PLAIN, 14));
+		 * textFechaFinalReserva.setEditable(false);
+		 * textFechaFinalReserva.setColumns(10);
+		 * textFechaFinalReserva.setBounds(691, 404, 238, 20);
+		 * contentPane.add(textFechaFinalReserva);
+		 */
 
 		// BOTON CALCULAR
 		JButton btnCalcular = new JButton("");
@@ -315,9 +317,13 @@ public class frmCliente extends JFrame {
 
 				int AñoR = 0;
 
-				String DiaRNum;
-				String MesRNum;
-				String AñoRNum;
+				int boton = 0;
+
+				/*
+				 * String DiaRNum;
+				 * String MesRNum;
+				 * String AñoRNum;
+				 */
 
 				textDiasSeleccionados.setText(cbxDiasSeleccionados.getSelectedItem().toString());
 
@@ -347,17 +353,33 @@ public class frmCliente extends JFrame {
 					NumDias = 12;
 
 				if (rdbtnHabitacionSimple.isSelected() == true)
-					textPrecioDia.setText(Integer.toString(HabitacionSimple.Precio));
-				PrecioDiasSeleccionado = HabitacionSimple.Precio * NumDias;
-				textPrecioDiasSeleccionados.setText("" + PrecioDiasSeleccionado);
+					boton = 1;
+
 				if (rdbtnHabitacionDoble.isSelected() == true)
-					textPrecioDia.setText(Integer.toString(HabitacionDoble.Precio));
-				PrecioDiasSeleccionado = HabitacionDoble.Precio * NumDias;
-				textPrecioDiasSeleccionados.setText("" + PrecioDiasSeleccionado);
+					boton = 2;
+
 				if (rdbtnHabitacionMatrimonial.isSelected() == true)
-					textPrecioDia.setText(Integer.toString(HabitacionMatrimonial.Precio));
-				PrecioDiasSeleccionado = HabitacionMatrimonial.Precio * NumDias;
-				textPrecioDiasSeleccionados.setText("" + PrecioDiasSeleccionado);
+					boton = 3;
+
+				switch (boton) {
+
+					case 1:
+						textPrecioDia.setText(Integer.toString(HabitacionSimple.Precio));
+						PrecioDiasSeleccionado = HabitacionSimple.Precio * NumDias;
+						textPrecioDiasSeleccionados.setText("" + PrecioDiasSeleccionado);
+						break;
+					case 2:
+						textPrecioDia.setText(Integer.toString(HabitacionDoble.Precio));
+						PrecioDiasSeleccionado = HabitacionDoble.Precio * NumDias;
+						textPrecioDiasSeleccionados.setText("" + PrecioDiasSeleccionado);
+						break;
+					case 3:
+						textPrecioDia.setText(Integer.toString(HabitacionMatrimonial.Precio));
+						PrecioDiasSeleccionado = HabitacionMatrimonial.Precio * NumDias;
+						textPrecioDiasSeleccionados.setText("" + PrecioDiasSeleccionado);
+						break;
+
+				}
 
 				if (cbxMesReserva.getSelectedItem().toString() == "Enero")
 					MesR = 1;
@@ -460,42 +482,46 @@ public class frmCliente extends JFrame {
 
 				textFechaReserva.setText(DiaR + "/" + MesR + "/" + AñoR);
 
-				if (MesR == 12 && DiaR + NumDias > 32)
-					DiaR = NumDias - 1;
-				MesR = MesR - 12;
-				AñoR = AñoR + 1;
-				DiaRNum = Integer.toString(DiaR);
-				MesRNum = Integer.toString(MesR);
-				AñoRNum = Integer.toString(AñoR);
-
-				textFechaFinalReserva.setText(DiaRNum + "/" + MesRNum + "/" + AñoRNum);
-				if (MesR == 2)
-					if (DiaR + NumDias > 30)
-						DiaR = NumDias - 1;
-				MesR = MesR + 1;
-				DiaRNum = Integer.toString(DiaR);
-				MesRNum = Integer.toString(MesR);
-				AñoRNum = Integer.toString(AñoR);
-
-				textFechaFinalReserva.setText(DiaRNum + "/" + MesRNum + "/" + AñoRNum);
-				if (MesR == 4 || MesR == 6 || MesR == 9 || MesR == 11)
-					if (DiaR + NumDias > 31)
-						DiaR = NumDias - 1;
-				MesR = MesR + 1;
-				DiaRNum = Integer.toString(DiaR);
-				MesRNum = Integer.toString(MesR);
-				AñoRNum = Integer.toString(AñoR);
-
-				textFechaFinalReserva.setText(DiaRNum + "/" + MesRNum + "/" + AñoRNum);
-				if (MesR == 1 || MesR == 3 || MesR == 5 || MesR == 7 || MesR == 8 || MesR == 10)
-					if (DiaR + NumDias > 32)
-						DiaR = NumDias - 1;
-				MesR = MesR + 1;
-				DiaRNum = Integer.toString(DiaR);
-				MesRNum = Integer.toString(MesR);
-				AñoRNum = Integer.toString(AñoR);
-
-				textFechaFinalReserva.setText(DiaRNum + "/" + MesRNum + "/" + AñoRNum);
+				/*
+				 * if(MesR == 12)
+				 * if (DiaR + NumDias > 32)
+				 * DiaR = NumDias - 1;
+				 * MesR = MesR - 11;
+				 * AñoR = AñoR + 1;
+				 * DiaRNum = Integer.toString(DiaR);
+				 * MesRNum = Integer.toString(MesR);
+				 * AñoRNum = Integer.toString(AñoR);
+				 * 
+				 * textFechaFinalReserva.setText(DiaRNum + "/" + MesRNum + "/" + AñoRNum);
+				 * if (MesR == 2)
+				 * if(DiaR + NumDias > 30)
+				 * DiaR = NumDias - 1;
+				 * MesR = MesR + 1;
+				 * DiaRNum = Integer.toString(DiaR);
+				 * MesRNum = Integer.toString(MesR);
+				 * AñoRNum = Integer.toString(AñoR);
+				 * 
+				 * textFechaFinalReserva.setText(DiaRNum + "/" + MesRNum + "/" + AñoRNum);
+				 * if (MesR == 4 || MesR == 6 || MesR == 9 || MesR == 11)
+				 * if(DiaR + NumDias > 31)
+				 * DiaR = NumDias - 1;
+				 * MesR = MesR + 1;
+				 * DiaRNum = Integer.toString(DiaR);
+				 * MesRNum = Integer.toString(MesR);
+				 * AñoRNum = Integer.toString(AñoR);
+				 * 
+				 * textFechaFinalReserva.setText(DiaRNum + "/" + MesRNum + "/" + AñoRNum);
+				 * if (MesR == 1 || MesR == 3 || MesR == 5 || MesR == 7 || MesR == 8 || MesR ==
+				 * 10)
+				 * if (DiaR + NumDias > 32)
+				 * DiaR = NumDias - 1;
+				 * MesR = MesR + 1;
+				 * DiaRNum = Integer.toString(DiaR);
+				 * MesRNum = Integer.toString(MesR);
+				 * AñoRNum = Integer.toString(AñoR);
+				 * 
+				 * textFechaFinalReserva.setText(DiaRNum + "/" + MesRNum + "/" + AñoRNum);
+				 */
 
 				int Numero = 0;
 				String MesNum;
