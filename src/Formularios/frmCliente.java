@@ -112,7 +112,8 @@ public class frmCliente extends JFrame {
 
 		JComboBox cbxMes = new JComboBox();
 		cbxMes.setFont(new Font("Arial", Font.PLAIN, 14));
-		cbxMes.setModel(new DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo" }));
+		cbxMes.setModel(new DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+				"Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
 		cbxMes.setBounds(177, 146, 298, 22);
 		contentPane.add(cbxMes);
 
@@ -142,6 +143,20 @@ public class frmCliente extends JFrame {
 					Numero = 4;
 				if (cbxMes.getSelectedItem().toString() == "Mayo")
 					Numero = 5;
+				if (cbxMes.getSelectedItem().toString() == "Junio")
+					Numero = 6;
+				if (cbxMes.getSelectedItem().toString() == "Julio")
+					Numero = 7;
+				if (cbxMes.getSelectedItem().toString() == "Agosto")
+					Numero = 8;
+				if (cbxMes.getSelectedItem().toString() == "Septiembre")
+					Numero = 9;
+				if (cbxMes.getSelectedItem().toString() == "Octubre")
+					Numero = 10;
+				if (cbxMes.getSelectedItem().toString() == "Noviembre")
+					Numero = 11;
+				if (cbxMes.getSelectedItem().toString() == "Diciembre")
+					Numero = 12;
 				String mensaje = "El mes seleccionado en numero es: ";
 				mensaje = mensaje + Integer.toString(Numero);
 				textMesNumero.setText(mensaje);

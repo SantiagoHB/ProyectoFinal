@@ -32,10 +32,15 @@ public class frmMenu extends JFrame implements ActionListener {
         menu2.setFont(new Font("Arial", Font.PLAIN, 16));
         MenuBar.add(menu2);
 
-        JMenuItem Menu2Item1 = new JMenuItem("Opcion #1");
+        JMenuItem Menu2Item1 = new JMenuItem("Habitacion Doble");
         Menu2Item1.setFont(new Font("Arial", Font.PLAIN, 14));
         Menu2Item1.setIcon(new ImageIcon(frmMenu.class.getResource("/Imagenes/Java1.png")));
         Menu2Item1.addActionListener(this);
+        Menu2Item1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
 
         menu2.add(Menu2Item1);
 
