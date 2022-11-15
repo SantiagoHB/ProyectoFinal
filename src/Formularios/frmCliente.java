@@ -132,13 +132,13 @@ public class frmCliente extends JFrame {
 				"Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
 		cbxMes.setBounds(177, 146, 298, 22);
 		contentPane.add(cbxMes);
-		
+
 		JLabel lblDiaNacimiento = new JLabel("Dia Nacimiento");
 		lblDiaNacimiento.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblDiaNacimiento.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblDiaNacimiento.setBounds(10, 176, 157, 25);
 		contentPane.add(lblDiaNacimiento);
-		
+
 		textDia = new JTextField();
 		textDia.setFont(new Font("Arial", Font.PLAIN, 14));
 		textDia.setColumns(10);
@@ -176,11 +176,10 @@ public class frmCliente extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				Inicio Inicio = new Inicio();
-				
-				
+
 				int Numero = 0;
 				String MesNum;
-				
+
 				if (cbxMes.getSelectedItem().toString() == "Enero")
 					Numero = 1;
 				if (cbxMes.getSelectedItem().toString() == "Febrero")
@@ -205,11 +204,10 @@ public class frmCliente extends JFrame {
 					Numero = 11;
 				if (cbxMes.getSelectedItem().toString() == "Diciembre")
 					Numero = 12;
-				
+
 				MesNum = Integer.toString(Numero);
-				
-				
-				textFechaNacimiento.setText("Fecha de nacimiento: " + textDia.getText() + "/" + MesNum + "/" + textAño.getText());
+
+				textFechaNacimiento.setText(textDia.getText() + "/" + MesNum + "/" + textAño.getText());
 
 				for (int i = 0; i <= 4; i++) {
 					if (Inicio.datosHotel[i][0] == null) {
@@ -223,30 +221,29 @@ public class frmCliente extends JFrame {
 		});
 		btnGuardar.setBounds(386, 210, 89, 23);
 		contentPane.add(btnGuardar);
-		
+
 		JCheckBox chckbxHabitacionMatrimonial = new JCheckBox("Habitacion Matrimonial");
 		chckbxHabitacionMatrimonial.setFont(new Font("Arial", Font.PLAIN, 14));
 		chckbxHabitacionMatrimonial.setBounds(177, 258, 173, 23);
 		contentPane.add(chckbxHabitacionMatrimonial);
-		
+
 		JLabel lblPrecio = new JLabel("Precio");
 		lblPrecio.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPrecio.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblPrecio.setBounds(10, 313, 157, 25);
 		contentPane.add(lblPrecio);
-		
+
 		textPrecio = new JTextField();
 		textPrecio.setFont(new Font("Arial", Font.PLAIN, 14));
 		textPrecio.setColumns(10);
 		textPrecio.setBounds(177, 315, 298, 20);
 		contentPane.add(textPrecio);
-		
+
 		textFechaNacimiento = new JTextField();
 		textFechaNacimiento.setFont(new Font("Arial", Font.PLAIN, 14));
 		textFechaNacimiento.setColumns(10);
 		textFechaNacimiento.setBounds(485, 211, 238, 20);
 		contentPane.add(textFechaNacimiento);
-		
-		
+
 	}
 }
