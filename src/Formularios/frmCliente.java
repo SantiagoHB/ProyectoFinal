@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Clases.Habitacion;
 import Clases.HabitacionDoble;
 import Clases.HabitacionMatrimonial;
 import Clases.HabitacionSimple;
@@ -42,16 +43,9 @@ public class frmCliente extends JFrame {
 	private JTextField textDiasSeleccionados;
 	private JTextField textFechaReserva;
 	private JTextField textFechaFinalReserva;
+	private JTextField textNumeroHabitacion;
 
 	public frmCliente() {
-
-		Inicio.datosHotel[0][0] = "98123456";
-		Inicio.datosHotel[0][1] = "Maria Isabel";
-		Inicio.datosHotel[0][2] = "20";
-
-		Inicio.datosHotel[0][0] = "123456789";
-		Inicio.datosHotel[0][1] = "Juan Camilo";
-		Inicio.datosHotel[0][2] = "50";
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1280, 720);
@@ -294,6 +288,19 @@ public class frmCliente extends JFrame {
 		 * contentPane.add(textFechaFinalReserva);
 		 */
 
+		JLabel lblNumeroHabitacion = new JLabel("Numero Habitacion :");
+		lblNumeroHabitacion.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNumeroHabitacion.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblNumeroHabitacion.setBounds(524, 402, 157, 25);
+		contentPane.add(lblNumeroHabitacion);
+
+		textNumeroHabitacion = new JTextField();
+		textNumeroHabitacion.setFont(new Font("Arial", Font.PLAIN, 14));
+		textNumeroHabitacion.setEditable(false);
+		textNumeroHabitacion.setColumns(10);
+		textNumeroHabitacion.setBounds(691, 407, 238, 20);
+		contentPane.add(textNumeroHabitacion);
+
 		// BOTON CALCULAR
 		JButton btnCalcular = new JButton("");
 		btnCalcular.setIcon(new ImageIcon(frmCliente.class.getResource("/Imagenes/Calcular.png")));
@@ -318,6 +325,8 @@ public class frmCliente extends JFrame {
 				int AñoR = 0;
 
 				int boton = 0;
+
+				int NumHabitacion = 1;
 
 				/*
 				 * String DiaRNum;
@@ -367,16 +376,25 @@ public class frmCliente extends JFrame {
 						textPrecioDia.setText(Integer.toString(HabitacionSimple.Precio));
 						PrecioDiasSeleccionado = HabitacionSimple.Precio * NumDias;
 						textPrecioDiasSeleccionados.setText("" + PrecioDiasSeleccionado);
+						if (NumHabitacion <= 5)
+							NumHabitacion = NumHabitacion + 1;
+						textNumeroHabitacion.setText("" + NumHabitacion);
 						break;
 					case 2:
 						textPrecioDia.setText(Integer.toString(HabitacionDoble.Precio));
 						PrecioDiasSeleccionado = HabitacionDoble.Precio * NumDias;
 						textPrecioDiasSeleccionados.setText("" + PrecioDiasSeleccionado);
+						if (NumHabitacion <= 10)
+							NumHabitacion = NumHabitacion + 1;
+						textNumeroHabitacion.setText("" + NumHabitacion);
 						break;
 					case 3:
 						textPrecioDia.setText(Integer.toString(HabitacionMatrimonial.Precio));
 						PrecioDiasSeleccionado = HabitacionMatrimonial.Precio * NumDias;
 						textPrecioDiasSeleccionados.setText("" + PrecioDiasSeleccionado);
+						if (NumHabitacion <= 15)
+							NumHabitacion = NumHabitacion + 1;
+						textNumeroHabitacion.setText("" + NumHabitacion);
 						break;
 
 				}
@@ -574,8 +592,19 @@ public class frmCliente extends JFrame {
 						Inicio.datosHotel[i][1] = textNombre.getText();
 						Inicio.datosHotel[i][2] = textEmail.getText();
 						Inicio.datosHotel[i][3] = textFechaNacimiento.getText();
+						Inicio.datosHotel[i][4] = textFechaReserva.getText();
+						Inicio.datosHotel[i][5] = textDiasSeleccionados.getText();
+						Inicio.datosHotel[i][6] = textNumeroHabitacion.getText();
+						Inicio.datosHotel[i][7] = textPrecioDia.getText();
+
 					}
 				}
+				JOptionPane.showMessageDialog(null,
+						"Reserva Guardada " + Inicio.datosHotel[0][0] + " " + Inicio.datosHotel[0][1] + " "
+								+ Inicio.datosHotel[0][2] + " " + Inicio.datosHotel[0][3] + " "
+								+ Inicio.datosHotel[0][4] + " " + Inicio.datosHotel[0][5]
+								+ " " + Inicio.datosHotel[0][6] + " " + Inicio.datosHotel[0][7]);
+
 			}
 		});
 		btnGuardar.setBounds(69, 580, 89, 23);
