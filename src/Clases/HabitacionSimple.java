@@ -1,16 +1,6 @@
 package Clases;
 
 public class HabitacionSimple extends Habitacion {
+	public int Precio = 60000; // La noche
 
-	public void MostrarFoto() {
-
-	}
-
-	public void MostrarPrecio() {
-
-	}
-
-	public void Clonar() {
-
-	}
 }
