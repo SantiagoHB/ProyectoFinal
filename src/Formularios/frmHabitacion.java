@@ -17,6 +17,7 @@ public class frmHabitacion extends JFrame implements ActionListener {
     private JTextField textPrecioHS;
     private JTextField textPrecioHD;
     private JTextField textPrecioHM;
+    private JTextField textField;
 
     public frmHabitacion() {
         getContentPane().setLayout(null);
@@ -28,6 +29,8 @@ public class frmHabitacion extends JFrame implements ActionListener {
                 HabitacionSimple HabitacionSimple = new HabitacionSimple();
 
                 textPrecioHS.setText(Integer.toString(HabitacionSimple.Precio));
+                textField.setText("Su selección fue habitación simple");
+                
 
             }
         });
@@ -43,6 +46,7 @@ public class frmHabitacion extends JFrame implements ActionListener {
                 HabitacionDoble HabitacionDoble = new HabitacionDoble();
 
                 textPrecioHD.setText(Integer.toString(HabitacionDoble.Precio));
+                textField.setText("Su selección fue habitación doble");
 
             }
         });
@@ -59,6 +63,7 @@ public class frmHabitacion extends JFrame implements ActionListener {
                 HabitacionMatrimonial HabitacionMatrimonial = new HabitacionMatrimonial();
 
                 textPrecioHM.setText(Integer.toString(HabitacionMatrimonial.Precio));
+                textField.setText("Su selección fue habitación matrimonial");
 
             }
         });
@@ -99,6 +104,16 @@ public class frmHabitacion extends JFrame implements ActionListener {
         textPrecioHM.setColumns(10);
         textPrecioHM.setBounds(331, 170, 79, 20);
         getContentPane().add(textPrecioHM);
+        
+        textField = new JTextField();
+        textField.setEditable(false);
+        textField.setBounds(48, 311, 280, 20);
+        getContentPane().add(textField);
+        textField.setColumns(10);
+        
+        JButton btnNewButton = new JButton("Aceptar");
+        btnNewButton.setBounds(376, 310, 89, 23);
+        getContentPane().add(btnNewButton);
 
     }
 }
