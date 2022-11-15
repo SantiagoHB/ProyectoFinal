@@ -4,6 +4,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Clases.HabitacionDoble;
+import Clases.HabitacionMatrimonial;
+import Clases.HabitacionSimple;
 import Clases.Inicio;
 
 import javax.swing.JLabel;
@@ -33,8 +36,10 @@ public class frmCliente extends JFrame {
 	JRadioButton rdbtnVerdadero, rdbtnFalso;
 	ButtonGroup GrupoRadios;
 	private JTextField textDia;
-	private JTextField textPrecio;
+	private JTextField textPrecioDia;
 	private JTextField textFechaNacimiento;
+	private JTextField textPrecioDiasSeleccionados;
+	private JTextField textDiasSeleccionados;
 
 	public frmCliente() {
 
@@ -55,7 +60,7 @@ public class frmCliente extends JFrame {
 		contentPane.setLayout(null);
 
 		// CEDULA
-		JLabel lblCedula = new JLabel("Cedula:");
+		JLabel lblCedula = new JLabel("Cedula :");
 		lblCedula.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblCedula.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCedula.setBounds(10, 27, 157, 25);
@@ -68,7 +73,7 @@ public class frmCliente extends JFrame {
 		textCedula.setColumns(10);
 
 		// NOMBRE
-		JLabel lblNombre = new JLabel("Nombre:");
+		JLabel lblNombre = new JLabel("Nombre :");
 		lblNombre.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNombre.setBounds(10, 55, 157, 25);
@@ -81,7 +86,7 @@ public class frmCliente extends JFrame {
 		contentPane.add(textNombre);
 
 		// SALARIO DIA
-		JLabel lblEmail = new JLabel("Email");
+		JLabel lblEmail = new JLabel("Email :");
 		lblEmail.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblEmail.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblEmail.setBounds(10, 84, 157, 25);
@@ -107,7 +112,7 @@ public class frmCliente extends JFrame {
 		// contentPane.add(textSalarioMes);
 
 		// Año
-		JLabel lblAño = new JLabel("Año Nacimiento");
+		JLabel lblAño = new JLabel("Año Nacimiento :");
 		lblAño.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblAño.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblAño.setBounds(10, 115, 157, 25);
@@ -120,7 +125,7 @@ public class frmCliente extends JFrame {
 		contentPane.add(textAño);
 
 		// COMBOBOX FECHA
-		JLabel lblMes = new JLabel("Mes nacimiento");
+		JLabel lblMes = new JLabel("Mes Nacimiento :");
 		lblMes.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblMes.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblMes.setBounds(10, 146, 157, 25);
@@ -133,7 +138,7 @@ public class frmCliente extends JFrame {
 		cbxMes.setBounds(177, 146, 298, 22);
 		contentPane.add(cbxMes);
 
-		JLabel lblDiaNacimiento = new JLabel("Dia Nacimiento");
+		JLabel lblDiaNacimiento = new JLabel("Dia Nacimiento :");
 		lblDiaNacimiento.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblDiaNacimiento.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblDiaNacimiento.setBounds(10, 176, 157, 25);
@@ -145,6 +150,79 @@ public class frmCliente extends JFrame {
 		textDia.setBounds(177, 179, 298, 20);
 		contentPane.add(textDia);
 
+		JLabel lblPrecioDia = new JLabel("Precio Dia :");
+		lblPrecioDia.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPrecioDia.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblPrecioDia.setBounds(10, 367, 157, 25);
+		contentPane.add(lblPrecioDia);
+
+		textPrecioDia = new JTextField();
+		textPrecioDia.setEditable(false);
+		textPrecioDia.setFont(new Font("Arial", Font.PLAIN, 14));
+		textPrecioDia.setColumns(10);
+		textPrecioDia.setBounds(208, 369, 298, 20);
+		contentPane.add(textPrecioDia);
+
+		textFechaNacimiento = new JTextField();
+		textFechaNacimiento.setFont(new Font("Arial", Font.PLAIN, 14));
+		textFechaNacimiento.setColumns(10);
+		textFechaNacimiento.setBounds(485, 211, 238, 20);
+		contentPane.add(textFechaNacimiento);
+
+		JRadioButton rdbtnHabitacionSimple = new JRadioButton("Habitacion Simple");
+		rdbtnHabitacionSimple.setFont(new Font("Arial", Font.PLAIN, 14));
+		rdbtnHabitacionSimple.setBounds(177, 206, 137, 23);
+		contentPane.add(rdbtnHabitacionSimple);
+
+		JRadioButton rdbtnHabitacionDoble = new JRadioButton("Habitacion Doble");
+		rdbtnHabitacionDoble.setFont(new Font("Arial", Font.PLAIN, 14));
+		rdbtnHabitacionDoble.setBounds(177, 232, 137, 23);
+		contentPane.add(rdbtnHabitacionDoble);
+
+		JRadioButton rdbtnHabitacionMatrimonial = new JRadioButton("Habitacion Matrimonial");
+		rdbtnHabitacionMatrimonial.setFont(new Font("Arial", Font.PLAIN, 14));
+		rdbtnHabitacionMatrimonial.setBounds(177, 258, 173, 23);
+		contentPane.add(rdbtnHabitacionMatrimonial);
+
+		JLabel lblPrecioDiasSeleccionados = new JLabel("Precio Dias Seleccionados :");
+		lblPrecioDiasSeleccionados.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPrecioDiasSeleccionados.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblPrecioDiasSeleccionados.setBounds(10, 403, 188, 25);
+		contentPane.add(lblPrecioDiasSeleccionados);
+
+		textPrecioDiasSeleccionados = new JTextField();
+		textPrecioDiasSeleccionados.setFont(new Font("Arial", Font.PLAIN, 14));
+		textPrecioDiasSeleccionados.setEditable(false);
+		textPrecioDiasSeleccionados.setColumns(10);
+		textPrecioDiasSeleccionados.setBounds(208, 405, 298, 20);
+		contentPane.add(textPrecioDiasSeleccionados);
+
+		JLabel lblDiasASeleccionar = new JLabel("Numero dias a seleccionar :");
+		lblDiasASeleccionar.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblDiasASeleccionar.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblDiasASeleccionar.setBounds(10, 296, 188, 25);
+		contentPane.add(lblDiasASeleccionar);
+
+		JComboBox cbxDiasSeleccionados = new JComboBox();
+		cbxDiasSeleccionados.setFont(new Font("Arial", Font.PLAIN, 14));
+		cbxDiasSeleccionados.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6",
+				"7", "8", "9", "10", "11", "12" }));
+		cbxDiasSeleccionados.setBounds(208, 298, 298, 22);
+		contentPane.add(cbxDiasSeleccionados);
+
+		JLabel lblDiasAseleccionados = new JLabel("Dias Seleccionados :");
+		lblDiasAseleccionados.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblDiasAseleccionados.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblDiasAseleccionados.setBounds(10, 331, 188, 25);
+		contentPane.add(lblDiasAseleccionados);
+
+		textDiasSeleccionados = new JTextField();
+		textDiasSeleccionados.setFont(new Font("Arial", Font.PLAIN, 14));
+		textDiasSeleccionados.setEditable(false);
+		textDiasSeleccionados.setColumns(10);
+		textDiasSeleccionados.setBounds(208, 331, 298, 20);
+		contentPane.add(textDiasSeleccionados);
+
 		// BOTON CALCULAR
 		JButton btnCalcular = new JButton("");
 		btnCalcular.setIcon(new ImageIcon(frmCliente.class.getResource("/Imagenes/Calcular.png")));
@@ -153,21 +231,59 @@ public class frmCliente extends JFrame {
 		btnCalcular.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
+				HabitacionSimple HabitacionSimple = new HabitacionSimple();
+				HabitacionDoble HabitacionDoble = new HabitacionDoble();
+				HabitacionMatrimonial HabitacionMatrimonial = new HabitacionMatrimonial();
+
+				int PrecioDiasSeleccionado = 0;
+
+				short NumDias = 0;
+
+				textDiasSeleccionados.setText(cbxDiasSeleccionados.getSelectedItem().toString());
+
+				if (cbxDiasSeleccionados.getSelectedItem().toString() == "1")
+					NumDias = 1;
+				if (cbxDiasSeleccionados.getSelectedItem().toString() == "2")
+					NumDias = 2;
+				if (cbxDiasSeleccionados.getSelectedItem().toString() == "3")
+					NumDias = 3;
+				if (cbxDiasSeleccionados.getSelectedItem().toString() == "4")
+					NumDias = 4;
+				if (cbxDiasSeleccionados.getSelectedItem().toString() == "5")
+					NumDias = 5;
+				if (cbxDiasSeleccionados.getSelectedItem().toString() == "6")
+					NumDias = 6;
+				if (cbxDiasSeleccionados.getSelectedItem().toString() == "7")
+					NumDias = 7;
+				if (cbxDiasSeleccionados.getSelectedItem().toString() == "8")
+					NumDias = 8;
+				if (cbxDiasSeleccionados.getSelectedItem().toString() == "9")
+					NumDias = 9;
+				if (cbxDiasSeleccionados.getSelectedItem().toString() == "10")
+					NumDias = 10;
+				if (cbxDiasSeleccionados.getSelectedItem().toString() == "11")
+					NumDias = 11;
+				if (cbxDiasSeleccionados.getSelectedItem().toString() == "12")
+					NumDias = 12;
+
+				if (rdbtnHabitacionSimple.isSelected() == true)
+					textPrecioDia.setText(Integer.toString(HabitacionSimple.Precio));
+				PrecioDiasSeleccionado = HabitacionSimple.Precio * NumDias;
+				textPrecioDiasSeleccionados.setText("" + PrecioDiasSeleccionado);
+				if (rdbtnHabitacionDoble.isSelected() == true)
+					textPrecioDia.setText(Integer.toString(HabitacionDoble.Precio));
+				PrecioDiasSeleccionado = HabitacionDoble.Precio * NumDias;
+				textPrecioDiasSeleccionados.setText("" + PrecioDiasSeleccionado);
+				if (rdbtnHabitacionMatrimonial.isSelected() == true)
+					textPrecioDia.setText(Integer.toString(HabitacionMatrimonial.Precio));
+				PrecioDiasSeleccionado = HabitacionMatrimonial.Precio * NumDias;
+				textPrecioDiasSeleccionados.setText("" + PrecioDiasSeleccionado);
+
 			}
 		});
-		btnCalcular.setBounds(45, 206, 108, 95);
+		btnCalcular.setBounds(59, 474, 108, 95);
 		contentPane.add(btnCalcular);
-
-		// CHECKBOX
-		JCheckBox chckbxHabitacionSencilla = new JCheckBox("Habitacion Sencilla");
-		chckbxHabitacionSencilla.setFont(new Font("Arial", Font.PLAIN, 14));
-		chckbxHabitacionSencilla.setBounds(177, 206, 145, 23);
-		contentPane.add(chckbxHabitacionSencilla);
-
-		JCheckBox chckbxHabitacionDoble = new JCheckBox("Habitacion Doble");
-		chckbxHabitacionDoble.setFont(new Font("Arial", Font.PLAIN, 14));
-		chckbxHabitacionDoble.setBounds(177, 232, 145, 23);
-		contentPane.add(chckbxHabitacionDoble);
 
 		// RADIOBUTTON
 
@@ -221,29 +337,6 @@ public class frmCliente extends JFrame {
 		});
 		btnGuardar.setBounds(386, 210, 89, 23);
 		contentPane.add(btnGuardar);
-
-		JCheckBox chckbxHabitacionMatrimonial = new JCheckBox("Habitacion Matrimonial");
-		chckbxHabitacionMatrimonial.setFont(new Font("Arial", Font.PLAIN, 14));
-		chckbxHabitacionMatrimonial.setBounds(177, 258, 173, 23);
-		contentPane.add(chckbxHabitacionMatrimonial);
-
-		JLabel lblPrecio = new JLabel("Precio");
-		lblPrecio.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPrecio.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblPrecio.setBounds(10, 313, 157, 25);
-		contentPane.add(lblPrecio);
-
-		textPrecio = new JTextField();
-		textPrecio.setFont(new Font("Arial", Font.PLAIN, 14));
-		textPrecio.setColumns(10);
-		textPrecio.setBounds(177, 315, 298, 20);
-		contentPane.add(textPrecio);
-
-		textFechaNacimiento = new JTextField();
-		textFechaNacimiento.setFont(new Font("Arial", Font.PLAIN, 14));
-		textFechaNacimiento.setColumns(10);
-		textFechaNacimiento.setBounds(485, 211, 238, 20);
-		contentPane.add(textFechaNacimiento);
 
 	}
 }
