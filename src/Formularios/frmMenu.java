@@ -32,34 +32,23 @@ public class frmMenu extends JFrame implements ActionListener {
         menu2.setFont(new Font("Arial", Font.PLAIN, 16));
         MenuBar.add(menu2);
 
-        JMenuItem Menu2Item1 = new JMenuItem("Habitacion Doble");
-        Menu2Item1.setFont(new Font("Arial", Font.PLAIN, 14));
-        Menu2Item1.setIcon(new ImageIcon(frmMenu.class.getResource("/Imagenes/Java1.png")));
-        Menu2Item1.addActionListener(this);
-        Menu2Item1.addActionListener(new ActionListener() {
+        JMenuItem Menu2Habitaciones = new JMenuItem("Habitaciones");
+        Menu2Habitaciones.setFont(new Font("Arial", Font.PLAIN, 14));
+        Menu2Habitaciones.setIcon(new ImageIcon(frmMenu.class.getResource("/Imagenes/Java1.png")));
+        Menu2Habitaciones.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                frmHabitacion frmHabitacion = new frmHabitacion();
+                frmHabitacion.setVisible(true); // HACE VISIBLE EL CONSTRUCTOR
             }
         });
 
-        menu2.add(Menu2Item1);
-
-        JMenuItem Menu2Item2 = new JMenuItem("Opcion #2");
-        Menu2Item2.setIcon(new ImageIcon(frmMenu.class.getResource("/Imagenes/Java2.png")));
-        Menu2Item2.setFont(new Font("Arial", Font.PLAIN, 14));
-        Menu2Item2.addActionListener(this);
-        menu2.add(Menu2Item2);
-
-        JMenuItem Menu2Item3 = new JMenuItem("Opcion #3");
-        Menu2Item3.setIcon(new ImageIcon(frmMenu.class.getResource("/Imagenes/Java3.png")));
-        Menu2Item3.setFont(new Font("Arial", Font.PLAIN, 14));
-        Menu2Item3.addActionListener(this);
-        menu2.add(Menu2Item3);
+        menu2.add(Menu2Habitaciones);
 
         setBounds(100, 100, 560, 457);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public void actionPerformed(ActionEvent eventoClick) {
+
     }
 }
