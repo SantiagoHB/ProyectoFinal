@@ -40,6 +40,8 @@ public class frmCliente extends JFrame {
 	private JTextField textFechaNacimiento;
 	private JTextField textPrecioDiasSeleccionados;
 	private JTextField textDiasSeleccionados;
+	private JTextField textFechaReserva;
+	private JTextField textFechaFinalReserva;
 
 	public frmCliente() {
 
@@ -153,20 +155,21 @@ public class frmCliente extends JFrame {
 		JLabel lblPrecioDia = new JLabel("Precio Dia :");
 		lblPrecioDia.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPrecioDia.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblPrecioDia.setBounds(10, 367, 157, 25);
+		lblPrecioDia.setBounds(24, 402, 157, 25);
 		contentPane.add(lblPrecioDia);
 
 		textPrecioDia = new JTextField();
 		textPrecioDia.setEditable(false);
 		textPrecioDia.setFont(new Font("Arial", Font.PLAIN, 14));
 		textPrecioDia.setColumns(10);
-		textPrecioDia.setBounds(208, 369, 298, 20);
+		textPrecioDia.setBounds(222, 404, 298, 20);
 		contentPane.add(textPrecioDia);
 
 		textFechaNacimiento = new JTextField();
+		textFechaNacimiento.setEditable(false);
 		textFechaNacimiento.setFont(new Font("Arial", Font.PLAIN, 14));
 		textFechaNacimiento.setColumns(10);
-		textFechaNacimiento.setBounds(485, 211, 238, 20);
+		textFechaNacimiento.setBounds(493, 179, 238, 20);
 		contentPane.add(textFechaNacimiento);
 
 		JRadioButton rdbtnHabitacionSimple = new JRadioButton("Habitacion Simple");
@@ -187,41 +190,107 @@ public class frmCliente extends JFrame {
 		JLabel lblPrecioDiasSeleccionados = new JLabel("Precio Dias Seleccionados :");
 		lblPrecioDiasSeleccionados.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPrecioDiasSeleccionados.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblPrecioDiasSeleccionados.setBounds(10, 403, 188, 25);
+		lblPrecioDiasSeleccionados.setBounds(24, 438, 188, 25);
 		contentPane.add(lblPrecioDiasSeleccionados);
 
 		textPrecioDiasSeleccionados = new JTextField();
 		textPrecioDiasSeleccionados.setFont(new Font("Arial", Font.PLAIN, 14));
 		textPrecioDiasSeleccionados.setEditable(false);
 		textPrecioDiasSeleccionados.setColumns(10);
-		textPrecioDiasSeleccionados.setBounds(208, 405, 298, 20);
+		textPrecioDiasSeleccionados.setBounds(222, 440, 298, 20);
 		contentPane.add(textPrecioDiasSeleccionados);
 
 		JLabel lblDiasASeleccionar = new JLabel("Numero dias a seleccionar :");
 		lblDiasASeleccionar.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblDiasASeleccionar.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblDiasASeleccionar.setBounds(10, 296, 188, 25);
+		lblDiasASeleccionar.setBounds(24, 331, 188, 25);
 		contentPane.add(lblDiasASeleccionar);
 
 		JComboBox cbxDiasSeleccionados = new JComboBox();
 		cbxDiasSeleccionados.setFont(new Font("Arial", Font.PLAIN, 14));
 		cbxDiasSeleccionados.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6",
 				"7", "8", "9", "10", "11", "12" }));
-		cbxDiasSeleccionados.setBounds(208, 298, 298, 22);
+		cbxDiasSeleccionados.setBounds(222, 333, 298, 22);
 		contentPane.add(cbxDiasSeleccionados);
 
 		JLabel lblDiasAseleccionados = new JLabel("Dias Seleccionados :");
 		lblDiasAseleccionados.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblDiasAseleccionados.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblDiasAseleccionados.setBounds(10, 331, 188, 25);
+		lblDiasAseleccionados.setBounds(24, 366, 188, 25);
 		contentPane.add(lblDiasAseleccionados);
 
 		textDiasSeleccionados = new JTextField();
 		textDiasSeleccionados.setFont(new Font("Arial", Font.PLAIN, 14));
 		textDiasSeleccionados.setEditable(false);
 		textDiasSeleccionados.setColumns(10);
-		textDiasSeleccionados.setBounds(208, 331, 298, 20);
+		textDiasSeleccionados.setBounds(222, 366, 298, 20);
 		contentPane.add(textDiasSeleccionados);
+
+		JLabel lblMesReserva = new JLabel("Mes Reserva :");
+		lblMesReserva.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblMesReserva.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblMesReserva.setBounds(55, 304, 157, 25);
+		contentPane.add(lblMesReserva);
+
+		JComboBox cbxMesReserva = new JComboBox();
+		cbxMesReserva.setFont(new Font("Arial", Font.PLAIN, 14));
+		cbxMesReserva.setBounds(222, 304, 298, 22);
+		cbxMesReserva
+				.setModel(new DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+						"Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+		contentPane.add(cbxMesReserva);
+
+		JLabel lblAñoReserva = new JLabel("Año Reserva :");
+		lblAñoReserva.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblAñoReserva.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblAñoReserva.setBounds(524, 304, 157, 25);
+		contentPane.add(lblAñoReserva);
+
+		JComboBox cbxAñoReserva = new JComboBox();
+		cbxAñoReserva.setFont(new Font("Arial", Font.PLAIN, 14));
+		cbxAñoReserva.setModel(new DefaultComboBoxModel(new String[] { "2022", "2023", "2024", "2025", "2026" }));
+		cbxAñoReserva.setBounds(691, 304, 298, 22);
+		contentPane.add(cbxAñoReserva);
+
+		JLabel lblDiaReserva = new JLabel("Dia Reserva :");
+		lblDiaReserva.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblDiaReserva.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblDiaReserva.setBounds(524, 331, 157, 25);
+		contentPane.add(lblDiaReserva);
+
+		JComboBox cbxDiaReserva = new JComboBox();
+		cbxDiaReserva.setFont(new Font("Arial", Font.PLAIN, 14));
+		cbxDiaReserva.setModel(new DefaultComboBoxModel(
+				new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
+						"17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+		cbxDiaReserva.setBounds(691, 331, 298, 22);
+		contentPane.add(cbxDiaReserva);
+
+		textFechaReserva = new JTextField();
+		textFechaReserva.setFont(new Font("Arial", Font.PLAIN, 14));
+		textFechaReserva.setEditable(false);
+		textFechaReserva.setColumns(10);
+		textFechaReserva.setBounds(691, 366, 238, 20);
+		contentPane.add(textFechaReserva);
+
+		JLabel lblFechaReserva = new JLabel("Fecha Inicio Reserva :");
+		lblFechaReserva.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblFechaReserva.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblFechaReserva.setBounds(524, 361, 157, 25);
+		contentPane.add(lblFechaReserva);
+
+		JLabel lblFechaFinalReserva = new JLabel("Fecha Final Reserva :");
+		lblFechaFinalReserva.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblFechaFinalReserva.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblFechaFinalReserva.setBounds(524, 399, 157, 25);
+		contentPane.add(lblFechaFinalReserva);
+
+		textFechaFinalReserva = new JTextField();
+		textFechaFinalReserva.setFont(new Font("Arial", Font.PLAIN, 14));
+		textFechaFinalReserva.setEditable(false);
+		textFechaFinalReserva.setColumns(10);
+		textFechaFinalReserva.setBounds(691, 404, 238, 20);
+		contentPane.add(textFechaFinalReserva);
 
 		// BOTON CALCULAR
 		JButton btnCalcular = new JButton("");
@@ -238,7 +307,17 @@ public class frmCliente extends JFrame {
 
 				int PrecioDiasSeleccionado = 0;
 
-				short NumDias = 0;
+				int NumDias = 0;
+
+				int DiaR = 0;
+
+				int MesR = 0;
+
+				int AñoR = 0;
+
+				String DiaRNum;
+				String MesRNum;
+				String AñoRNum;
 
 				textDiasSeleccionados.setText(cbxDiasSeleccionados.getSelectedItem().toString());
 
@@ -280,18 +359,143 @@ public class frmCliente extends JFrame {
 				PrecioDiasSeleccionado = HabitacionMatrimonial.Precio * NumDias;
 				textPrecioDiasSeleccionados.setText("" + PrecioDiasSeleccionado);
 
-			}
-		});
-		btnCalcular.setBounds(59, 474, 108, 95);
-		contentPane.add(btnCalcular);
+				if (cbxMesReserva.getSelectedItem().toString() == "Enero")
+					MesR = 1;
+				if (cbxMesReserva.getSelectedItem().toString() == "Febrero")
+					MesR = 2;
+				if (cbxMesReserva.getSelectedItem().toString() == "Marzo")
+					MesR = 3;
+				if (cbxMesReserva.getSelectedItem().toString() == "Abril")
+					MesR = 4;
+				if (cbxMesReserva.getSelectedItem().toString() == "Mayo")
+					MesR = 5;
+				if (cbxMesReserva.getSelectedItem().toString() == "Junio")
+					MesR = 6;
+				if (cbxMesReserva.getSelectedItem().toString() == "Julio")
+					MesR = 7;
+				if (cbxMesReserva.getSelectedItem().toString() == "Agosto")
+					MesR = 8;
+				if (cbxMesReserva.getSelectedItem().toString() == "Septiembre")
+					MesR = 9;
+				if (cbxMesReserva.getSelectedItem().toString() == "Octubre")
+					MesR = 10;
+				if (cbxMesReserva.getSelectedItem().toString() == "Noviembre")
+					MesR = 11;
+				if (cbxMesReserva.getSelectedItem().toString() == "Diciembre")
+					MesR = 12;
 
-		// RADIOBUTTON
+				if (cbxDiaReserva.getSelectedItem().toString() == "1")
+					DiaR = 1;
+				if (cbxDiaReserva.getSelectedItem().toString() == "2")
+					DiaR = 2;
+				if (cbxDiaReserva.getSelectedItem().toString() == "3")
+					DiaR = 3;
+				if (cbxDiaReserva.getSelectedItem().toString() == "4")
+					DiaR = 4;
+				if (cbxDiaReserva.getSelectedItem().toString() == "5")
+					DiaR = 5;
+				if (cbxDiaReserva.getSelectedItem().toString() == "6")
+					DiaR = 6;
+				if (cbxDiaReserva.getSelectedItem().toString() == "7")
+					DiaR = 7;
+				if (cbxDiaReserva.getSelectedItem().toString() == "8")
+					DiaR = 8;
+				if (cbxDiaReserva.getSelectedItem().toString() == "9")
+					DiaR = 9;
+				if (cbxDiaReserva.getSelectedItem().toString() == "10")
+					DiaR = 10;
+				if (cbxDiaReserva.getSelectedItem().toString() == "11")
+					DiaR = 11;
+				if (cbxDiaReserva.getSelectedItem().toString() == "12")
+					DiaR = 12;
+				if (cbxDiaReserva.getSelectedItem().toString() == "13")
+					DiaR = 13;
+				if (cbxDiaReserva.getSelectedItem().toString() == "14")
+					DiaR = 14;
+				if (cbxDiaReserva.getSelectedItem().toString() == "15")
+					DiaR = 15;
+				if (cbxDiaReserva.getSelectedItem().toString() == "16")
+					DiaR = 16;
+				if (cbxDiaReserva.getSelectedItem().toString() == "17")
+					DiaR = 17;
+				if (cbxDiaReserva.getSelectedItem().toString() == "18")
+					DiaR = 18;
+				if (cbxDiaReserva.getSelectedItem().toString() == "19")
+					DiaR = 19;
+				if (cbxDiaReserva.getSelectedItem().toString() == "20")
+					DiaR = 20;
+				if (cbxDiaReserva.getSelectedItem().toString() == "21")
+					DiaR = 21;
+				if (cbxDiaReserva.getSelectedItem().toString() == "22")
+					DiaR = 22;
+				if (cbxDiaReserva.getSelectedItem().toString() == "23")
+					DiaR = 23;
+				if (cbxDiaReserva.getSelectedItem().toString() == "24")
+					DiaR = 24;
+				if (cbxDiaReserva.getSelectedItem().toString() == "25")
+					DiaR = 25;
+				if (cbxDiaReserva.getSelectedItem().toString() == "26")
+					DiaR = 26;
+				if (cbxDiaReserva.getSelectedItem().toString() == "27")
+					DiaR = 27;
+				if (cbxDiaReserva.getSelectedItem().toString() == "28")
+					DiaR = 28;
+				if (cbxDiaReserva.getSelectedItem().toString() == "29")
+					DiaR = 29;
+				if (cbxDiaReserva.getSelectedItem().toString() == "30")
+					DiaR = 30;
+				if (cbxDiaReserva.getSelectedItem().toString() == "31")
+					DiaR = 31;
 
-		JButton btnGuardar = new JButton("Guardar");
-		btnGuardar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+				if (cbxAñoReserva.getSelectedItem().toString() == "2022")
+					AñoR = 2022;
+				if (cbxAñoReserva.getSelectedItem().toString() == "2023")
+					AñoR = 2023;
+				if (cbxAñoReserva.getSelectedItem().toString() == "2024")
+					AñoR = 2024;
+				if (cbxAñoReserva.getSelectedItem().toString() == "2025")
+					AñoR = 2025;
+				if (cbxAñoReserva.getSelectedItem().toString() == "2026")
+					AñoR = 2026;
 
-				Inicio Inicio = new Inicio();
+				textFechaReserva.setText(DiaR + "/" + MesR + "/" + AñoR);
+
+				if (MesR == 12 && DiaR + NumDias > 32)
+					DiaR = NumDias - 1;
+				MesR = MesR - 12;
+				AñoR = AñoR + 1;
+				DiaRNum = Integer.toString(DiaR);
+				MesRNum = Integer.toString(MesR);
+				AñoRNum = Integer.toString(AñoR);
+
+				textFechaFinalReserva.setText(DiaRNum + "/" + MesRNum + "/" + AñoRNum);
+				if (MesR == 2)
+					if (DiaR + NumDias > 30)
+						DiaR = NumDias - 1;
+				MesR = MesR + 1;
+				DiaRNum = Integer.toString(DiaR);
+				MesRNum = Integer.toString(MesR);
+				AñoRNum = Integer.toString(AñoR);
+
+				textFechaFinalReserva.setText(DiaRNum + "/" + MesRNum + "/" + AñoRNum);
+				if (MesR == 4 || MesR == 6 || MesR == 9 || MesR == 11)
+					if (DiaR + NumDias > 31)
+						DiaR = NumDias - 1;
+				MesR = MesR + 1;
+				DiaRNum = Integer.toString(DiaR);
+				MesRNum = Integer.toString(MesR);
+				AñoRNum = Integer.toString(AñoR);
+
+				textFechaFinalReserva.setText(DiaRNum + "/" + MesRNum + "/" + AñoRNum);
+				if (MesR == 1 || MesR == 3 || MesR == 5 || MesR == 7 || MesR == 8 || MesR == 10)
+					if (DiaR + NumDias > 32)
+						DiaR = NumDias - 1;
+				MesR = MesR + 1;
+				DiaRNum = Integer.toString(DiaR);
+				MesRNum = Integer.toString(MesR);
+				AñoRNum = Integer.toString(AñoR);
+
+				textFechaFinalReserva.setText(DiaRNum + "/" + MesRNum + "/" + AñoRNum);
 
 				int Numero = 0;
 				String MesNum;
@@ -325,6 +529,19 @@ public class frmCliente extends JFrame {
 
 				textFechaNacimiento.setText(textDia.getText() + "/" + MesNum + "/" + textAño.getText());
 
+			}
+		});
+		btnCalcular.setBounds(59, 474, 108, 95);
+		contentPane.add(btnCalcular);
+
+		// RADIOBUTTON
+
+		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				Inicio Inicio = new Inicio();
+
 				for (int i = 0; i <= 4; i++) {
 					if (Inicio.datosHotel[i][0] == null) {
 						Inicio.datosHotel[i][0] = textCedula.getText();
@@ -335,7 +552,7 @@ public class frmCliente extends JFrame {
 				}
 			}
 		});
-		btnGuardar.setBounds(386, 210, 89, 23);
+		btnGuardar.setBounds(69, 580, 89, 23);
 		contentPane.add(btnGuardar);
 
 	}
