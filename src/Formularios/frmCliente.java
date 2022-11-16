@@ -393,8 +393,8 @@ public class frmCliente extends JFrame {
 					switch(boton) {
 					
 						case 1 :
-							textPrecioDia.setText(Integer.toString(HabitacionSimple.Precio));
-						    PrecioDiasSeleccionado = HabitacionSimple.Precio*NumDias;
+							textPrecioDia.setText(Integer.toString(HabitacionSimple.getPrecio()));
+						    PrecioDiasSeleccionado = HabitacionSimple.getPrecio()*NumDias;
 						    textPrecioDiasSeleccionados.setText("" + PrecioDiasSeleccionado);
 						    if(NumHabitacion <= 5)
 						    	NumHabitacion = NumHabitacion + 1;

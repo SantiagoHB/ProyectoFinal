@@ -25,7 +25,7 @@ public class frmHabitacion extends JFrame implements ActionListener {
             public void actionPerformed(ActionEvent e) {
 
                 HabitacionSimple HabitacionSimple = new HabitacionSimple();
-                textPrecioHS.setText(Integer.toString(HabitacionSimple.Precio));
+                textPrecioHS.setText(Integer.toString(HabitacionSimple.getPrecio()));
                 textField.setText("Su selección fue habitación simple");
                 
 
@@ -41,7 +41,7 @@ public class frmHabitacion extends JFrame implements ActionListener {
 
                 HabitacionDoble HabitacionDoble = new HabitacionDoble();
 
-                textPrecioHD.setText(Integer.toString(HabitacionDoble.Precio));
+                textPrecioHD.setText(Integer.toString(HabitacionDoble.getPrecio()));
                 textField.setText("Su selección fue habitación doble");
 
             }
@@ -57,7 +57,7 @@ public class frmHabitacion extends JFrame implements ActionListener {
 
                 HabitacionMatrimonial HabitacionMatrimonial = new HabitacionMatrimonial();
 
-                textPrecioHM.setText(Integer.toString(HabitacionMatrimonial.Precio));
+                textPrecioHM.setText(Integer.toString(HabitacionMatrimonial.getPrecio()));
                 textField.setText("Su selección fue habitación matrimonial");
 
             }
