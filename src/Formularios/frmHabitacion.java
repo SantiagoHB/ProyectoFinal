@@ -27,7 +27,6 @@ public class frmHabitacion extends JFrame implements ActionListener {
                 HabitacionSimple HabitacionSimple = new HabitacionSimple();
                 textPrecioHS.setText(Integer.toString(HabitacionSimple.Precio));
                 textField.setText("Su selección fue habitación simple");
-                
 
             }
         });
@@ -99,43 +98,43 @@ public class frmHabitacion extends JFrame implements ActionListener {
         textPrecioHM.setColumns(10);
         textPrecioHM.setBounds(580, 167, 79, 20);
         getContentPane().add(textPrecioHM);
-        
+
         textField = new JTextField();
         textField.setEditable(false);
         textField.setBounds(48, 311, 280, 20);
         getContentPane().add(textField);
         textField.setColumns(10);
-        
+
         JButton btnNewButton = new JButton("Aceptar");
         btnNewButton.setBounds(376, 310, 89, 23);
         getContentPane().add(btnNewButton);
-        
+
         JButton btnNewButton_1 = new JButton("Ver habitación");
         btnNewButton_1.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		Sencilla FotoSimple = new Sencilla();
+            public void actionPerformed(ActionEvent e) {
+                Sencilla FotoSimple = new Sencilla();
                 FotoSimple.setVisible(true);
-        	}
+            }
         });
         btnNewButton_1.setBounds(48, 225, 123, 23);
         getContentPane().add(btnNewButton_1);
-        
+
         JButton btnNewButton_1_1 = new JButton("Ver habitación");
         btnNewButton_1_1.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		Doble FotoDoble = new Doble();
+            public void actionPerformed(ActionEvent e) {
+                Doble FotoDoble = new Doble();
                 FotoDoble.setVisible(true);
-        	}
+            }
         });
         btnNewButton_1_1.setBounds(303, 225, 129, 23);
         getContentPane().add(btnNewButton_1_1);
-        
+
         JButton btnNewButton_1_2 = new JButton("Ver habitación");
         btnNewButton_1_2.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		Matrimonial FotoMatri = new Matrimonial();
+            public void actionPerformed(ActionEvent e) {
+                Matrimonial FotoMatri = new Matrimonial();
                 FotoMatri.setVisible(true);
-        	}
+            }
         });
         btnNewButton_1_2.setBounds(555, 225, 119, 23);
         getContentPane().add(btnNewButton_1_2);

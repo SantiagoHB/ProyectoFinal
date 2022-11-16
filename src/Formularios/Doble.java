@@ -35,24 +35,24 @@ public class Doble extends JFrame {
 	 * Create the frame.
 	 */
 	public Doble() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 882, 645);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Lenovo\\Downloads\\DSC016421.jpg"));
 		lblNewLabel.setBounds(68, 27, 800, 544);
 		contentPane.add(lblNewLabel);
-		
+
 		JButton btnNewButton = new JButton("Regresar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmHabitacion regre = new frmHabitacion();
-				regre.setVisible(true);	
+				regre.setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(428, 574, 89, 23);
