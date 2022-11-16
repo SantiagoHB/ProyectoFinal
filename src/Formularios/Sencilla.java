@@ -35,24 +35,24 @@ public class Sencilla extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Sencilla() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 816, 633);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(141, 10, 426, 568);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Lenovo\\Downloads\\D_NQ_NP_805506-MCO48252535410_112021-W.jpg"));
+		lblNewLabel.setIcon(new ImageIcon(Sencilla.class.getResource("/Imagenes/Habitacion Sencilla.jpg")));
 		contentPane.add(lblNewLabel);
-		
+
 		JButton btnNewButton = new JButton("Regresar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmHabitacion regre = new frmHabitacion();
-				regre.setVisible(true);	
+				regre.setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(638, 202, 89, 23);
