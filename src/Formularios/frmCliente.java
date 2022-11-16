@@ -642,18 +642,5 @@ public class frmCliente extends JFrame {
 		btnGuardar.setBounds(570, 440, 89, 23);
 		contentPane.add(btnGuardar);
 		
-
-		
-
-		
-
-		
-
-		
-
-		
-		
-		
-		
 	}
 }
